@@ -18,19 +18,16 @@ clk = Wire(name='clk')
 led = Wire(name='led')
 blinker(clk_i=clk, led_o=led, length=3)
 
-# Run a simulation of the LED blinker.
 clk_sim(clk, num_cycles=16)
 
-# Not executing in Jupyter, so don't display waveforms.
 show_waveforms()
 
-# Show the simulation results as a table.
+
 show_text_table()
 
-# Output the Verilog code for the blinker.
+# Output the VHDL code for the blinker.
 toVHDL(blinker, clk_i=clk, led_o=led, length=22)
 
-# Create the pin constraint file.
 with open('blinker.pcf', 'w') as pcf:
     pcf.write(
 '''
